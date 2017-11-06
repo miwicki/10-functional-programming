@@ -82,16 +82,13 @@ var app = app || {};
           words: (current.title.split(/\s+/).length) + (current.body.split(/\s+/).length),
           url: current.authorUrl
         }
-      // apply filter on array of objects for each article containing the author name and number of words
       }).filter(current => {
         return current.name === author;
       })
 
-      // apply reduce on array of objects containing specific author
       let numWords = filteredAuthors.reduce((acc, cur) => {
         return acc + cur.words;
       }, 0)
-      // numwords now contains the accumulated words for the specific author
 
       return {
         author: author,
